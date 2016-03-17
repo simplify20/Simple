@@ -30,7 +30,7 @@ import dagger.producers.internal.Producers;
  */
 public class TestRepoDataSource extends BaseDaggerMultiDataSource<List<Repo>, List<Repo>> {
     public TestRepoDataSource(DataFetcher<ListenableFuture<List<Repo>>>... dataFetchers) {
-        
+
         super(dataFetchers);
     }
 
