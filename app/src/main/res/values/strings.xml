@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Simple</string>
+    <string name="repo_name_format">%1$s(star:%2$d)</string>
+</resources>

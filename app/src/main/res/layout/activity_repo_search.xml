@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="repoVm"
+            type="com.simple.creact.simple.app.presentation.viewmodel.RepoViewModel" />
+    </data>
+
+    <RelativeLayout android:padding="10dp">
+
+        <LinearLayout
+            android:id="@+id/search_container"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/input_name"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint="输入git用户名"
+                android:textColorHint="#c7c6c6" />
+
+            <Button
+                android:id="@+id/search_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:onClick="search"
+                android:text="Search" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/repos_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:dataSet ="@{repoVm.observableRepoList}"
+            android:visibility="@{repoVm.isEmpty?View.GONE:View.VISIBLE}"
+            android:layout_below="@id/search_container"></android.support.v7.widget.RecyclerView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{repoVm.isEmpty?View.VISIBLE:View.GONE}">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="没有相关的仓库"
+                android:textColor="#c7c6c6" />
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>  
