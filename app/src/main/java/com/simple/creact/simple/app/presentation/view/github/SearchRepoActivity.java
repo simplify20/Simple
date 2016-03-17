@@ -1,7 +1,6 @@
 package com.simple.creact.simple.app.presentation.view.github;
 
 import android.app.ProgressDialog;
-import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,7 +9,6 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.simple.creact.library.framework.repository.DataCallback;
 import com.simple.creact.library.framework.repository.impl.DataCallbackAdapter;
@@ -19,8 +17,8 @@ import com.simple.creact.simple.app.SimpleApplication;
 import com.simple.creact.simple.app.biz.github.RepoService;
 import com.simple.creact.simple.app.data.di.github.component.DaggerRepoComponent;
 import com.simple.creact.simple.app.data.entity.github.Repo;
-import com.simple.creact.simple.app.presentation.view.BaseActivity;
-import com.simple.creact.simple.app.presentation.view.Bindable;
+import com.simple.creact.simple.app.presentation.view.common.BaseActivity;
+import com.simple.creact.simple.app.presentation.view.common.Bindable;
 import com.simple.creact.simple.app.presentation.viewmodel.RepoViewModel;
 import com.simple.creact.simple.app.util.DeviceUtil;
 import com.simple.creact.simple.app.util.ToastUtil;
@@ -42,21 +40,6 @@ public class SearchRepoActivity extends BaseActivity {
     private ProgressDialog progressDialog;
     private DataCallback<List<Repo>> mDataCallback;
 
-    /**
-     * Not recommend do like this,static method is hard to test
-     *
-     * @param recyclerView
-     * @param repos
-     */
-    @BindingAdapter("dataSet")
-    public static void setRepoList(RecyclerView recyclerView, List<Repo> repos) {
-        RepoAdapter repoAdapter = (RepoAdapter) recyclerView.getAdapter();
-        if (repos == null || repos.size() == 0) {
-            ToastUtil.toastShortMsg("没有搜到任何结果~");
-            return;
-        }
-        repoAdapter.setRepos(repos);
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,12 +79,15 @@ public class SearchRepoActivity extends BaseActivity {
 
 
     private void showError() {
-        Toast.makeText(SearchRepoActivity.this, "出错了~", Toast.LENGTH_SHORT);
         progressDialog.dismiss();
+        ToastUtil.toastShortMsg("出错了~");
     }
 
     private void showSuccess(List<Repo> repoList) {
-        repoViewModel.addAll(repoList);
+        if (repoList != null) {
+            repoViewModel.addAll(repoList);
+            repoAdapter.setRepos(repoList);
+        }
         progressDialog.dismiss();
     }
 

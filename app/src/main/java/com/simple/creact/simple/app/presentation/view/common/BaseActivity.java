@@ -1,4 +1,4 @@
-package com.simple.creact.simple.app.presentation.view;
+package com.simple.creact.simple.app.presentation.view.common;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

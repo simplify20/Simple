@@ -73,7 +73,6 @@ public class RepoModule {
     @Named(QualifierConstants.PROVIDE_REPO_DATA_FETCHER_DAGGER)
     @Provides
     DataFetcher daggerRepoFetcher(RepoDaggerDataSource.DaggerRepoFetcher daggerRepoFetcher) {
-
         return daggerRepoFetcher;
     }
 
@@ -85,10 +84,19 @@ public class RepoModule {
     }
 
     @ActivityScope
+    @Named(QualifierConstants.PROVIDE_REPO_DATA_DB_FETCHER_DAGGER)
+    @Provides
+    DataFetcher daggerRepoDBFetcher(TestRepoDataSource.TestDBFetcher daggerRepoFetcher) {
+        return daggerRepoFetcher;
+    }
+
+    @ActivityScope
     @Provides
     @Named(QualifierConstants.PROVIDE_REPO_DATA_SOURCE_GUAVA)
-    DataSource daggerRepoDataSource(@Named(QualifierConstants.PROVIDE_REPO_DATA_FILE_FETCHER_DAGGER) DataFetcher fileDataFetcher, @Named(QualifierConstants.PROVIDE_REPO_DATA_FETCHER_DAGGER) DataFetcher netWorkFetcher) {
-        return new TestRepoDataSource(fileDataFetcher,netWorkFetcher);
+    DataSource daggerRepoDataSource(@Named(QualifierConstants.PROVIDE_REPO_DATA_FILE_FETCHER_DAGGER) DataFetcher fileDataFetcher,
+                                    @Named(QualifierConstants.PROVIDE_REPO_DATA_FETCHER_DAGGER) DataFetcher netWorkFetcher,
+                                    @Named(QualifierConstants.PROVIDE_REPO_DATA_DB_FETCHER_DAGGER) DataFetcher dbFetcher) {
+        return new TestRepoDataSource(netWorkFetcher, fileDataFetcher, dbFetcher);
     }
 
     @ActivityScope

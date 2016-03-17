@@ -1,4 +1,4 @@
-package com.simple.creact.simple.app.presentation.view;
+package com.simple.creact.simple.app.presentation.view.common;
 
 /**
  * @author:YJJ

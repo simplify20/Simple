@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 import javax.inject.Inject;
@@ -47,7 +48,6 @@ public class TestRepoDataSource extends BaseDaggerMultiDataSource<List<Repo>, Li
 
         @Override
         public IParameter putValues(@NonNull IParameter<String, String> extra, @NonNull String... values) {
-            extra.put("user", values[0]);
             return extra;
         }
 
@@ -60,13 +60,50 @@ public class TestRepoDataSource extends BaseDaggerMultiDataSource<List<Repo>, Li
                     List<Repo> result = new ArrayList();
                     for (int i = 0; i < 10; i++) {
                         Repo repo = new Repo();
-                        repo.name = "test" + i;
+                        repo.name = "file" + i;
+                        repo.stars = i + 20;
+                        result.add(repo);
+                    }
+                    int i = 10 / 0;//test exception
+                    return result;
+                }
+            }, executor);
+        }
+
+        @Override
+        public void close() {
+
+        }
+    }
+
+
+    public static class TestDBFetcher extends BaseDataFetcher<Future<List<Repo>>> {
+
+        @Inject
+        public TestDBFetcher() {
+        }
+
+        @Override
+        public IParameter putValues(@NonNull IParameter<String, String> extra, @NonNull String... values) {
+            return extra;
+        }
+
+        @Override
+        public Future<List<Repo>> fetchDataImpl(@NonNull RequestParameter requestParameter) throws Exception {
+            return Producers.submitToExecutor(new Callable<List<Repo>>() {
+                @Override
+                public List<Repo> call() throws Exception {
+                    Thread.sleep(1000);
+                    List<Repo> result = new ArrayList();
+                    for (int i = 0; i < 10; i++) {
+                        Repo repo = new Repo();
+                        repo.name = "db" + i;
                         repo.stars = i + 20;
                         result.add(repo);
                     }
                     return result;
                 }
-            }, executor);
+            }, Executors.newSingleThreadExecutor());
         }
 
         @Override

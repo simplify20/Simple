@@ -109,7 +109,6 @@ public class SimpleApplication extends Application {
             topActivity = activity;
         }
     }
-
     /**
      * hook for repository
      */

@@ -20,7 +20,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
- *
  * @author:YJJ
  * @date:2016/3/14
  * @email:yangjianjun@117go.com
@@ -28,7 +27,7 @@ import javax.inject.Named;
 public class RepoDaggerDataSource extends BaseDaggerDataSource<List<Repo>, List<Repo>> {
 
     @Inject
-    public RepoDaggerDataSource(@Named(QualifierConstants.PROVIDE_REPO_DATA_FETCHER_DAGGER)DataFetcher dataFetcher) {
+    public RepoDaggerDataSource(@Named(QualifierConstants.PROVIDE_REPO_DATA_FETCHER_DAGGER) DataFetcher dataFetcher) {
         super(dataFetcher);
     }
 
@@ -65,8 +64,7 @@ public class RepoDaggerDataSource extends BaseDaggerDataSource<List<Repo>, List<
                     .executor(executor)
                     .build()
                     .getRepo();
-            if (result != null)
-                cache = result;
+            cache = result;
             return cache;
         }
 
