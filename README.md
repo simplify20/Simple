@@ -1,2 +1,2 @@
 # Simple
-a Simple and Clean Android application framework for Android basing on  MVVM Architecture
+A Simple and Clean Android application framework for Android basing on  MVVM Architecture
