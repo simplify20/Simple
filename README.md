@@ -38,6 +38,7 @@
 ####**使用Dagger2+DataBinding+RxJava实现MVVM架构：**
 
 1.**配置**
+
 在应用的build.gradle文件中：
 引入Simple library
 >compile project(':library')
