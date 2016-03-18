@@ -35,7 +35,7 @@
 
 ####**RepositoryManager：**
 用于管理业务逻辑代码所涉及的所有Repository，在创建View(Repository)时注册，在View销毁时，取消注册，并关闭Repository。
-####**使用Dagger2+DataBinding+RxJava实现MVVM架构：**
+####**使用Simple+Dagger2+DataBinding+RxJava实现MVVM架构：**
 
 1.**配置**
 
