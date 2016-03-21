@@ -35,7 +35,10 @@
 
 ####**RepositoryManager：**
 用于管理业务逻辑代码所涉及的所有Repository，在创建View(Repository)时注册，在View销毁时，取消注册，并关闭Repository。
+####**使用Simple+Dagger2+DataBinding+RxJava实现MVVM架构：**
+
 1.**配置**
+
 在应用的build.gradle文件中：
 引入Simple library
 >compile project(':library')
@@ -451,15 +454,16 @@ Repository中有个方法名为`setCallback(DataCallback<C> callback)` 异步请
 **博文地址**：http://blog.csdn.net/u012825445/article/details/50921345)
 
 **Dagger2(Google):**
-Video:https://www.youtube.com/watch?v=oK_XtfXPkqw
-Guid:http://google.github.io/dagger/
-Github:https://github.com/google/dagger
-More:http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/
+
+- Video:https://www.youtube.com/watch?v=oK_XtfXPkqw
+- Guide:http://google.github.io/dagger/
+- Github:https://github.com/google/dagger
+- More:http://fernandocejas.com/2015/04/11/tasting-dagger-2-on-android/
 
 **DataBinding:**
-https://realm.io/news/data-binding-android-boyar-mount/
-https://www.zybuluo.com/shark0017/note/256112
-http://developer.android.com/intl/zh-cn/tools/data-binding/guide.html
+
+- Blog:https://realm.io/news/data-binding-android-boyar-mount/
+- Google:http://developer.android.com/intl/zh-cn/tools/data-binding/guide.html
 
 [1]:http://blog.csdn.net/chenssy/article/details/11179815
 [2]:https://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F
