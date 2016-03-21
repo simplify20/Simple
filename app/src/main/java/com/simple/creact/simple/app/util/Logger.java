@@ -1,22 +1,23 @@
-package com.simple.creact.library.framework.util;
+package com.simple.creact.simple.app.util;
 
+import android.util.Log;
 
 /**
  * @author:YJJ
- * @date:2016/3/15
+ * @date:2016/3/21
  * @email:yangjianjun@117go.com
  */
 public class Logger {
 
     public static void d(String tag, String message) {
-        System.out.println(tag + ": " + message);
+        Log.d(tag, message);
     }
 
     public static void i(String tag, String message) {
-        d(tag, message);
+        Log.i(tag, message);
     }
 
     public static void e(String tag, String message) {
-        System.err.println(tag + ": " + message);
+        Log.e(tag, message);
     }
 }

@@ -1,9 +1,9 @@
 package com.simple.creact.library.framework.datasource.impl;
 
-import android.support.annotation.NonNull;
 
 import com.simple.creact.library.framework.IParameter;
 import com.simple.creact.library.framework.ParameterFactory;
+import com.simple.creact.library.framework.annotation.NonNull;
 import com.simple.creact.library.framework.datasource.DataFetcher;
 
 

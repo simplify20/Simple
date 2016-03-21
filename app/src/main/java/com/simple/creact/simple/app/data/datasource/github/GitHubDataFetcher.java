@@ -1,8 +1,8 @@
 package com.simple.creact.simple.app.data.datasource.github;
 
-import android.support.annotation.NonNull;
 
 import com.simple.creact.library.framework.IParameter;
+import com.simple.creact.library.framework.annotation.NonNull;
 import com.simple.creact.simple.app.data.datasource.RetrofitDataFetcher;
 import com.simple.creact.simple.app.data.web.GitHubApi;
 

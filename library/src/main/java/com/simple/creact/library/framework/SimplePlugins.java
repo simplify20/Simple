@@ -16,7 +16,7 @@ public class SimplePlugins {
     private static AtomicReference<RepositoryHook> repositoryHookAtomicReference = new AtomicReference<>();
     static final RepositoryHook DEFAULT_REPOSITORY_HOOK = new RepositoryHook() {
         @Override
-        public Class getTopActivity() {
+        public Class getTopViewClass() {
             return null;
         }
     };

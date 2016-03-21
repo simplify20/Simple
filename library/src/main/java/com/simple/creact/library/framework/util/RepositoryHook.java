@@ -14,7 +14,7 @@ import com.simple.creact.library.framework.repository.impl.RepositoryManager;
 public abstract class RepositoryHook {
 
     public void onRepositoryConstruct(Repository repository) {
-        Class viewClass = getTopActivity();
+        Class viewClass = getTopViewClass();
         if (viewClass == null) {
             viewClass = repository.getClass();
         }
@@ -33,7 +33,7 @@ public abstract class RepositoryHook {
 
     }
 
-    public abstract Class getTopActivity();
+    public abstract Class getTopViewClass();
 
 
 }

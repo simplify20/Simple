@@ -7,7 +7,7 @@ import com.google.common.util.concurrent.ListenableFuture;
 import com.simple.creact.library.framework.IParameter;
 import com.simple.creact.library.framework.datasource.DataFetcher;
 import com.simple.creact.library.framework.datasource.impl.BaseDataSource;
-import com.simple.creact.library.framework.util.Logger;
+import com.simple.creact.simple.app.util.Logger;
 
 /**
  * @author:YJJ

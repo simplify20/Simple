@@ -8,6 +8,7 @@ import com.simple.creact.library.framework.util.Logger;
 
 
 /**
+ * Note: this class depends on Android API
  * A ui thread callback implementation ,you can use a common DataCallback to construct a UIDataCallback
  *
  * @author:YJJ

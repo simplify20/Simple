@@ -9,11 +9,11 @@ import android.support.v7.appcompat.BuildConfig;
 
 import com.simple.creact.library.framework.SimplePlugins;
 import com.simple.creact.library.framework.repository.impl.RepositoryManager;
-import com.simple.creact.library.framework.util.Logger;
 import com.simple.creact.library.framework.util.RepositoryHook;
 import com.simple.creact.simple.app.data.di.common.component.ApplicationComponent;
 import com.simple.creact.simple.app.data.di.common.component.DaggerApplicationComponent;
 import com.simple.creact.simple.app.data.di.common.module.ApplicationModule;
+import com.simple.creact.simple.app.util.Logger;
 import com.squareup.picasso.Picasso;
 
 
@@ -115,7 +115,7 @@ public class SimpleApplication extends Application {
     private static class SimpleRepositoryHook extends RepositoryHook {
 
         @Override
-        public Class getTopActivity() {
+        public Class getTopViewClass() {
             return SimpleApplication.topActivity.getClass();
         }
     }

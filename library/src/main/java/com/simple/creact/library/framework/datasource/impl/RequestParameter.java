@@ -1,7 +1,5 @@
 package com.simple.creact.library.framework.datasource.impl;
 
-import android.text.TextUtils;
-
 import com.simple.creact.library.framework.IParameter;
 
 import java.util.HashMap;
@@ -24,6 +22,7 @@ public class RequestParameter implements IParameter<String, String> {
         result.setAction(action);
         return result;
     }
+
     /**
      * use to construct a Parameter
      */
@@ -37,7 +36,7 @@ public class RequestParameter implements IParameter<String, String> {
     }
 
     public final boolean hasAction() {
-        return !TextUtils.isEmpty(action);
+        return !(action == null || action == "");
     }
 
     public final String getAction() {
@@ -55,6 +54,7 @@ public class RequestParameter implements IParameter<String, String> {
 
     /**
      * safe return
+     *
      * @param key
      * @return
      */
@@ -68,7 +68,7 @@ public class RequestParameter implements IParameter<String, String> {
 
     @Override
     public void putAll(Map<String, String> putMap) {
-        if(putMap==null)
+        if (putMap == null)
             putMap = new HashMap<>();
         keyValues.putAll(putMap);
     }
