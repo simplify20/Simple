@@ -433,7 +433,7 @@ data->datasource->`BaseDaggerMultiDataSource`：
 - 依赖于Guava的可以配置多个DataFetcher的DataSource基类。使用它可以实现以下效果：
 ![这里写图片描述](http://img.blog.csdn.net/20160318133036422)
 
-利用Dagger2可以配置DataFetcher非常容易，只用改变Module中的Porvide配置即可。
+利用Dagger2配置DataFetcher非常容易，只用改变Module中的Porvide配置即可。
 
 当然，你可以通过继承`BaseDataSource` 或 `BaseRepository` 实现自定义的DataSource或者Repository基类
 
