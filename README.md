@@ -404,9 +404,13 @@ repoService.getRepos(name.toString(), mDataCallback);
 ![这里写图片描述](http://img.blog.csdn.net/20160318124547753)
 
 **biz**：组织与业务实现有关的代码，如业务接口，业务实现，和Repository,可以在该包下细分多个业务模块。
+
 **data**：组织与数据有关的模块，如di（依赖注入）,bean,datasource,datafetcher等。
+
 **presentation**：组织UI相关的代码，如Activity,Fragment,ViewModel等
+
 **util**：工具类
+
 ####**相关类说明**：
 biz->`BaseDaggerRepository`:
 
@@ -428,6 +432,7 @@ data->datasource->`BaseDaggerMultiDataSource`：
 
 - 依赖于Guava的可以配置多个DataFetcher的DataSource基类。使用它可以实现以下效果：
 ![这里写图片描述](http://img.blog.csdn.net/20160318133036422)
+
 利用Dagger2可以配置DataFetcher非常容易，只用改变Module中的Porvide配置即可。
 
 当然，你可以通过继承`BaseDataSource` 或 `BaseRepository` 实现自定义的DataSource或者Repository基类
