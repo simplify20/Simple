@@ -24,6 +24,8 @@ public class MainActivity extends BaseActivity {
         ActivityMainBinding activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         //set binding component
         DataBindingUtil.setDefaultComponent(DaggerProductionComponent.builder().build());
+
+        throw  new NullPointerException("fdsfdsfd");
     }
 
     public void goRepo(View v) {

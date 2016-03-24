@@ -19,7 +19,7 @@ import rx.subscriptions.CompositeSubscription;
  * @date:2016/3/10
  * @email:yangjianjun@117go.com
  */
-public abstract class BaseObservableRepository<C, S> extends BaseRepository<C, Subscription> {
+    public abstract class BaseObservableRepository<C, S> extends BaseRepository<C, Subscription> {
     protected DataSource<Observable<S>> dataSource;
     protected CompositeSubscription subscriptions = new CompositeSubscription();
 

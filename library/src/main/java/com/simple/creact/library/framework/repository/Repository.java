@@ -13,8 +13,8 @@ import com.simple.creact.library.framework.IParameter;
  */
 public interface Repository<C,S> extends Closeable {
 
-
     S getData(IParameter extra, String... values);
 
     void setCallback(DataCallback<C> callback);
+
 }
