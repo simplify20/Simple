@@ -17,12 +17,12 @@
 
 ####**Simple架构简图**
 
-![这里写图片描述](http://img.blog.csdn.net/20160318112247332)
+![这里写图片描述](http://img.blog.csdn.net/20160322121449645)
 
 - Business Service。业务层，通过接口定义功能，View层使用此接口实现业务操作。业务层可以维持多个Repository,用于实现不同的业务需求；
 - Repository。数据仓库，DataSource的代理，用于控制业务代码对数据源的访问（参考[代理模式][1]）；
-- DataSource。数据源，可以管理多个数据请求者，实现数据源切换。将获取数据的请求和请求的实现者进行解耦（参考[命令模式][2]）
-- DataFetcher。数据请求者，真正请求数据和数据层打交道的对象。
+- DataSource。数据源，可以管理多个数据读取者，实现数据切换（本地，网络，缓存等）。将获取数据的请求和请求的实现者进行解耦（参考[命令模式][2]）
+- DataFetcher。数据读取者，真正请求数据和数据层打交道的对象。
 - 数据层。数据的存储位置。
 
 各模块的依赖关系由上到下。
@@ -404,9 +404,13 @@ repoService.getRepos(name.toString(), mDataCallback);
 ![这里写图片描述](http://img.blog.csdn.net/20160318124547753)
 
 **biz**：组织与业务实现有关的代码，如业务接口，业务实现，和Repository,可以在该包下细分多个业务模块。
+
 **data**：组织与数据有关的模块，如di（依赖注入）,bean,datasource,datafetcher等。
+
 **presentation**：组织UI相关的代码，如Activity,Fragment,ViewModel等
+
 **util**：工具类
+
 ####**相关类说明**：
 biz->`BaseDaggerRepository`:
 
@@ -428,7 +432,8 @@ data->datasource->`BaseDaggerMultiDataSource`：
 
 - 依赖于Guava的可以配置多个DataFetcher的DataSource基类。使用它可以实现以下效果：
 ![这里写图片描述](http://img.blog.csdn.net/20160318133036422)
-利用Dagger2可以配置DataFetcher非常容易，只用改变Module中的Porvide配置即可。
+
+利用Dagger2配置DataFetcher非常容易，只用改变Module中的Porvide配置即可。
 
 当然，你可以通过继承`BaseDataSource` 或 `BaseRepository` 实现自定义的DataSource或者Repository基类
 
