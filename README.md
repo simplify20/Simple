@@ -32,6 +32,8 @@
 ![MVP](http://img.blog.csdn.net/20160318120303145)
 ####**在MVVM中的位置：**
 ![MVVM](http://img.blog.csdn.net/20160318120339911)
+####**Simple类图：**
+![类图](http://img.blog.csdn.net/20160325164822615)
 
 ####**RepositoryManager：**
 用于管理业务逻辑代码所涉及的所有Repository，在创建View(Repository)时注册，在View销毁时，取消注册，并关闭Repository。
@@ -456,7 +458,7 @@ Repository中有个方法名为`setCallback(DataCallback<C> callback)` 异步请
 
 ####**参考链接：**
 
-**博文地址**：http://blog.csdn.net/u012825445/article/details/50921345)
+**博文地址**：http://blog.csdn.net/u012825445/article/details/50921345
 
 **Dagger2(Google):**
 
